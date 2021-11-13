@@ -9,7 +9,7 @@ class Navigation extends React.Component{
             <>
                 <Navbar bg="light" expand="lg">
                     <Container>
-                        <Navbar.Brand as={Link} to={"/"}>Collective Deck</Navbar.Brand>
+                        <Navbar.Brand as={Link} to={"/collective-deck/"}>Collective Deck</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
