@@ -146,11 +146,11 @@ class App extends React.Component{
 
               <DragDropContext onDragEnd={this.onDragEnd}>
                   <Routes>
-                      <Route path="/" element={<ViewPage cards={this.state.children} amountActions={this.amountActions} optionActions={this.optionActions} addCardAction={this.addCardAction}/>}/>
-                      <Route path="/build" element={<BuildPage/>}/>
-                      <Route path="/analyse" element={<AnalysePage/>}/>
-                      <Route path="/stream" element={<StreamPage/>}/>
-                      <Route path="/credits" element={<CreditsPage/>}/>
+                      <Route path="/collective-deck/" element={<ViewPage cards={this.state.children} amountActions={this.amountActions} optionActions={this.optionActions} addCardAction={this.addCardAction}/>}/>
+                      <Route path="/collective-deck/build" element={<BuildPage/>}/>
+                      <Route path="/collective-deck/analyse" element={<AnalysePage/>}/>
+                      <Route path="/collective-deck/stream" element={<StreamPage/>}/>
+                      <Route path="/collective-deck/credits" element={<CreditsPage/>}/>
                   </Routes>
               </DragDropContext>
           </div>
