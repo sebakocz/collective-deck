@@ -1,21 +1,24 @@
-import React from 'react'
 import {Button} from "react-bootstrap";
 import getRandomLadderDeck from "../utils/GetRandomLadderDeck";
 
-class RandomLadderDeck extends React.Component{
-    render() {
-        return (
+function RandomLadderDeck(props) {
+
+
+    function load(){
+        getRandomLadderDeck().then(deck => props.addCardAction(deck))
+    }
+
+    return (
             <div>
                 <Button
                     variant={"secondary"}
-                    onClick={async () => this.props.addCardAction(await getRandomLadderDeck())}
+                    onClick={load}
                 >
                     See a random deck from Ladder!
                 </Button>
                 <p className={"App"}>OR</p>
             </div>
-        );
-    }
+        )
 }
 
 export default RandomLadderDeck

@@ -15,8 +15,14 @@ class ViewPage extends React.Component{
             <Container className="pt-5">
                 <Row>
                     <Col xs={5}>
-                        {this.props.cards.length <= 0 && <RandomLadderDeck addCardAction={this.props.addCardAction}/>}
+                        {this.props.cards.length <= 0 &&
+                        <RandomLadderDeck
+                            addCardAction={this.props.addCardAction}
+                        />}
                         <Decklist cards={this.props.cards} amountActions={this.props.amountActions} addCardAction={this.props.addCardAction}/>
+                        {this.props.cards.length > 0 && <div>
+                            {this.props.cards.reduce((a,b) => a + b.amount, 0)}
+                        </div>}
                         <DecklistInput addCardAction={this.props.addCardAction}/>
                         {this.props.cards.length > 0 && <Options optionActions={this.props.optionActions}/>}
                     </Col>

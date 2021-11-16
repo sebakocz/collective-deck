@@ -10,7 +10,7 @@ async function getCards(input) {
         if(lines[i].charAt(0) === '#' || lines[i] === '')
             continue
 
-        const card_amount = parseInt(lines[i].charAt(0))
+        let card_amount = parseInt(lines[i].charAt(0))
 
         let card_id = ''
 
@@ -25,6 +25,7 @@ async function getCards(input) {
             card_id = /(?<=\/p\/cards\/)(.*?)(?=...png)/.exec(identifier)[0]
         }
         // case: card id
+        // ! this also catches when no number is provided in front of a link !
         else if(/([a-z]|[0-9]){8}-([a-z]|[0-9]){4}-([a-z]|[0-9]){4}-([a-z]|[0-9]){4}-([a-z]|[0-9]){12}/.test(identifier)){
             card_id = identifier
         }
@@ -56,6 +57,9 @@ async function getCards(input) {
         const card_img = findProperty(card_data.card.Text.Properties, 'PortraitUrl').Expression.Value;
 
         const card_cost = findProperty(card_data.card.Text.Properties, 'IGOCost').Expression.Value
+
+        if (isNaN(card_amount))
+            card_amount = 1
 
         cards.push({
             id: card_id,

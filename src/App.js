@@ -11,6 +11,7 @@ import BuildPage from "./pages/Build";
 import {DragDropContext} from "react-beautiful-dnd";
 import getCards from "./utils/GetCards";
 import StreamPage from "./pages/Stream";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 
 //https://www.youtube.com/watch?v=Dorf8i6lCuk&ab_channel=Academind
 
@@ -47,15 +48,21 @@ class App extends React.Component{
         })
     }
 
-    addCardAction = async (input) => {
-        const cards = await getCards(input)
+    addCardAction = (input) => {
+        //const cards = await getCards(input)
+        console.log(input)
 
-        this.setState({
-            children: [
-                ...this.state.children,
-                ...cards
-            ]
-        });
+        this.loadingAction(
+            getCards(input)
+                .then(cards => {
+                    this.setState({
+                        children: [
+                            ...this.state.children,
+                            ...cards
+                        ]
+                    });
+                })
+        )
     }
 
     clearAction = () => {
@@ -139,14 +146,24 @@ class App extends React.Component{
         remove: this.removeAmountAction
     }
 
+    loadingAction = (premise) => {
+        this.LoadingScreen.loadingScreen(premise)
+    }
+
     render() {
       return (
           <div>
               <Navigation/>
-
+              <LoadingScreen ref={LoadingScreen => this.LoadingScreen = LoadingScreen}/>
               <DragDropContext onDragEnd={this.onDragEnd}>
                   <Routes>
-                      <Route path="/collective-deck/" element={<ViewPage cards={this.state.children} amountActions={this.amountActions} optionActions={this.optionActions} addCardAction={this.addCardAction}/>}/>
+                      <Route path="/collective-deck/"
+                             element={<ViewPage cards={this.state.children}
+                                                amountActions={this.amountActions}
+                                                optionActions={this.optionActions}
+                                                addCardAction={this.addCardAction}
+                             />}
+                      />
                       <Route path="/collective-deck/build" element={<BuildPage/>}/>
                       <Route path="/collective-deck/analyse" element={<AnalysePage/>}/>
                       <Route path="/collective-deck/stream" element={<StreamPage/>}/>
