@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/collective-deck/static/css/main.aebb573c.chunk.css",
-    "main.js": "/collective-deck/static/js/main.9a4f6191.chunk.js",
-    "main.js.map": "/collective-deck/static/js/main.9a4f6191.chunk.js.map",
-    "runtime-main.js": "/collective-deck/static/js/runtime-main.f9b3173c.js",
-    "runtime-main.js.map": "/collective-deck/static/js/runtime-main.f9b3173c.js.map",
+    "main.css": "/collective-deck/static/css/main.652cd8e5.chunk.css",
+    "main.js": "/collective-deck/static/js/main.94bdf78c.chunk.js",
+    "main.js.map": "/collective-deck/static/js/main.94bdf78c.chunk.js.map",
+    "runtime-main.js": "/collective-deck/static/js/runtime-main.ffbc0010.js",
+    "runtime-main.js.map": "/collective-deck/static/js/runtime-main.ffbc0010.js.map",
     "static/css/2.383c0125.chunk.css": "/collective-deck/static/css/2.383c0125.chunk.css",
-    "static/js/2.2714a284.chunk.js": "/collective-deck/static/js/2.2714a284.chunk.js",
-    "static/js/2.2714a284.chunk.js.map": "/collective-deck/static/js/2.2714a284.chunk.js.map",
-    "static/js/3.951e81fd.chunk.js": "/collective-deck/static/js/3.951e81fd.chunk.js",
-    "static/js/3.951e81fd.chunk.js.map": "/collective-deck/static/js/3.951e81fd.chunk.js.map",
+    "static/js/2.a477b4b3.chunk.js": "/collective-deck/static/js/2.a477b4b3.chunk.js",
+    "static/js/2.a477b4b3.chunk.js.map": "/collective-deck/static/js/2.a477b4b3.chunk.js.map",
+    "static/js/3.cfdcfbb1.chunk.js": "/collective-deck/static/js/3.cfdcfbb1.chunk.js",
+    "static/js/3.cfdcfbb1.chunk.js.map": "/collective-deck/static/js/3.cfdcfbb1.chunk.js.map",
     "index.html": "/collective-deck/index.html",
     "static/css/2.383c0125.chunk.css.map": "/collective-deck/static/css/2.383c0125.chunk.css.map",
-    "static/css/main.aebb573c.chunk.css.map": "/collective-deck/static/css/main.aebb573c.chunk.css.map",
-    "static/js/2.2714a284.chunk.js.LICENSE.txt": "/collective-deck/static/js/2.2714a284.chunk.js.LICENSE.txt"
+    "static/css/main.652cd8e5.chunk.css.map": "/collective-deck/static/css/main.652cd8e5.chunk.css.map",
+    "static/js/2.a477b4b3.chunk.js.LICENSE.txt": "/collective-deck/static/js/2.a477b4b3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f9b3173c.js",
+    "static/js/runtime-main.ffbc0010.js",
     "static/css/2.383c0125.chunk.css",
-    "static/js/2.2714a284.chunk.js",
-    "static/css/main.aebb573c.chunk.css",
-    "static/js/main.9a4f6191.chunk.js"
+    "static/js/2.a477b4b3.chunk.js",
+    "static/css/main.652cd8e5.chunk.css",
+    "static/js/main.94bdf78c.chunk.js"
   ]
 }
