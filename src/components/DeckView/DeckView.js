@@ -1,10 +1,11 @@
 import React from 'react'
-import CardImage from "./CardImage";
+import CardImage from "../CardImage/CardImage";
+import styles from "./DeckView.module.css"
 
 class DeckView extends React.Component{
     render() {
         return (
-            <div className={"deckview-container"}>
+            <div className={styles.deckviewContainer}>
                 {this.props.cards.map((item, index) => (
 
                     <CardImage

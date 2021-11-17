@@ -1,0 +1,12 @@
+.cardImg {
+    display: flex;
+    padding: 8px;
+    border-radius: 6px;
+    color: rgb(255, 255, 255);
+    background: left center no-repeat;
+    background-size: cover;
+    width: 29%;
+    height: 80px;
+    margin: 5px;
+    text-shadow: 0 0 5px black;
+}

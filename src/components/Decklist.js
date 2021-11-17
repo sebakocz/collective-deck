@@ -1,6 +1,6 @@
 import React from "react";
 import {Droppable} from "react-beautiful-dnd";
-import Cardlink from "./Cardlink";
+import Cardlink from "./Cardlink/Cardlink";
 
 
 class Decklist extends React.Component{

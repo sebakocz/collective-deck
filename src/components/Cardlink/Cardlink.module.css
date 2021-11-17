@@ -1,0 +1,25 @@
+.card {
+    margin: 3px 0;
+}
+
+.card > div {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.cardBody {
+    padding: 0.2rem 0.2rem;
+}
+
+.cardFooter {
+    font-size: xx-small;
+    padding: 0.1rem 0.3rem;
+    color: #858282;
+}
+
+.cardLinkBtn{
+    width: 30px;
+    margin: 0 2px;
+    padding: 0 .5rem;
+}
+

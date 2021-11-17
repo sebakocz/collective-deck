@@ -3,8 +3,8 @@ import React from 'react';
 import {Col, Row} from "react-bootstrap";
 import Decklist from "../components/Decklist";
 import Container from "react-bootstrap/Container";
-import DecklistInput from "../components/DecklistInput";
-import DeckView from "../components/DeckView";
+import DecklistInput from "../components/DecklistInput/DecklistInput";
+import DeckView from "../components/DeckView/DeckView";
 import Options from "../components/Options";
 import RandomLadderDeck from "../components/RandomLadderDeck";
 
@@ -14,7 +14,7 @@ class ViewPage extends React.Component{
         return (
             <Container className="pt-5">
                 <Row>
-                    <Col xs={5}>
+                    <Col md={5}>
                         {this.props.cards.length <= 0 &&
                         <RandomLadderDeck
                             addCardAction={this.props.addCardAction}

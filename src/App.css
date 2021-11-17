@@ -8,12 +8,6 @@
   padding-top: 3em;
 }
 
-textarea {
-  resize: none;
-  white-space: nowrap;
-  width: 100%;
-}
-
 .btn {
   width: 100%;
   margin: 0 0 5px;
@@ -29,46 +23,9 @@ textarea {
   box-shadow: none;
 }
 
-.card > div {
-  display: inline-flex;
-  justify-content: space-between;
-}
-
-.card {
-  margin: 3px 0;
-}
-
-.card-body {
-  padding: 0.2rem 0.2rem;
-}
-
-.card-footer {
-  font-size: xx-small;
-  padding: 0.1rem 0.3rem;
-  color: #858282;
-}
-
-.card-img {
-  display: flex;
-  padding: 8px;
-  border-radius: 6px;
-  color: rgb(255, 255, 255);
-  background: left center no-repeat;
-  background-size: cover;
-  width: 31%;
-  height: 80px;
-  margin: 5px;
-  text-shadow: 0 0 5px black;
-}
-
 a, a:hover, a:active {
   text-decoration: none;
   color: white;
-}
-
-.deckview-container {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .affinity-None{
@@ -88,7 +45,7 @@ a, a:hover, a:active {
   opacity: 1 !important;
 }
 
-.otions{
+.options{
   position: fixed;
 }
 
@@ -97,8 +54,3 @@ a, a:hover, a:active {
 }
 
 
-.card-link-btn{
-  width: 30px;
-  margin: 0 2px;
-  padding: 0 .5rem;
-}

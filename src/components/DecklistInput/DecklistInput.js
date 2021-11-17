@@ -1,4 +1,6 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
+import styles from './DecklistInput.module.css'
 
 import {Button} from "react-bootstrap";
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactTooltip from "react-tooltip";
+import styles from "./CardImage.module.css"
 
 class CardImage extends React.Component{
     render() {
@@ -7,7 +8,7 @@ class CardImage extends React.Component{
             <a
                 href={this.props.card.link}
                 target={'_blank'}
-                className={'card-img'}
+                className={styles.cardImg}
                 style={{backgroundImage: `url(${this.props.card.img})`}} rel="noreferrer"
                 data-tip
                 data-for={"card-tooltip-"+this.props.card.id}
