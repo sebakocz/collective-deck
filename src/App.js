@@ -164,7 +164,13 @@ class App extends React.Component{
                                                 addCardAction={this.addCardAction}
                              />}
                       />
-                      <Route path="/collective-deck/build" element={<BuildPage/>}/>
+                      <Route path="/collective-deck/build"
+                             element={<BuildPage cards={this.state.children}
+                                                 amountActions={this.amountActions}
+                                                 optionActions={this.optionActions}
+                                                 addCardAction={this.addCardAction}
+                             />}
+                      />
                       <Route path="/collective-deck/analyse" element={<AnalysePage/>}/>
                       <Route path="/collective-deck/stream" element={<StreamPage/>}/>
                       <Route path="/collective-deck/credits" element={<CreditsPage/>}/>

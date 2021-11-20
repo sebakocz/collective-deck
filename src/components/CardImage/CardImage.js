@@ -8,8 +8,9 @@ class CardImage extends React.Component{
             <a
                 href={this.props.card.link}
                 target={'_blank'}
+                rel="noreferrer"
                 className={styles.cardImg}
-                style={{backgroundImage: `url(${this.props.card.img})`}} rel="noreferrer"
+                style={{backgroundImage: `url(${this.props.card.img})`}}
                 data-tip
                 data-for={"card-tooltip-"+this.props.card.id}
             >

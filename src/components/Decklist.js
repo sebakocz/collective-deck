@@ -10,7 +10,8 @@ class Decklist extends React.Component{
         return (
             <Droppable droppableId="decklist_drop_id">
                 {(provided)=>(
-                    <div ref={provided.innerRef} {...provided.droppableProps}>
+                    <div ref={provided.innerRef} {...provided.droppableProps}
+                         style={{marginBottom: '10rem'}}>
                         {this.props.cards.map((item, index) => (
                             <Cardlink
                                 card={item}
