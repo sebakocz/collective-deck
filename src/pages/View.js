@@ -19,7 +19,8 @@ class ViewPage extends React.Component{
                         <RandomLadderDeck
                             addCardAction={this.props.addCardAction}
                         />}
-                        {this.props.cards.length > 0 && <div>
+                        {this.props.cards.length > 0 &&
+                        <div>
                             {this.props.cards.reduce((a,b) => a + b.amount, 0)}
                         </div>}
                         <DecklistInput addCardAction={this.props.addCardAction}/>

@@ -19,6 +19,7 @@ class DecklistInput extends React.Component {
 
     onHandleChange(e) {
         this.setState({
+            ...this.state,
             card_input: e.target.value
         });
     }

@@ -5,19 +5,6 @@ import styles from './Cardlink.module.css'
 import ReactTooltip from "react-tooltip";
 
 class Cardlink extends React.Component{
-// .affinity-None{
-//     background-color: rgba(208, 208, 208, 0.13);
-// }
-// .affinity-Mind{
-//     background-color: rgba(31, 161, 217, 0.13);
-// }
-// .affinity-Strength{
-//     background-color: rgba(217, 37, 31, 0.13);
-// }
-// .affinity-Spirit{
-//     background-color: rgba(43, 217, 31, 0.13);
-// }
-
 
     get_rgba(affinity){
         let rgba
@@ -34,13 +21,31 @@ class Cardlink extends React.Component{
             case "Spirit":
                 rgba = "rgba(148,227,142, 1)"
                 break
+            default:
+                rgba = "rgba(1,1,1,1)"
         }
         return rgba
     }
 
+    // async fetchImg(){
+    //     return fetch('https://server.collective.gg/api/card/' + this.props.card.id).then((response) => {
+    //         if (response.ok) {
+    //             return response.json();
+    //         } else {
+    //             throw new Error("Can't find card via API");
+    //         }
+    //     })
+    //         .then((responseJson) => {
+    //             return findProperty(responseJson.card.Text.Properties, 'PortraitUrl').Expression.Value
+    //         })
+    //         .catch((error) => {
+    //             console.log(error)
+    //         })
+    // }
+
     render() {
         return (
-            <Draggable draggableId={"drag_id_"+this.props.index} index={this.props.index}>
+            <Draggable draggableId={this.props.dragSuffix+"drag_id_"+this.props.index} index={this.props.index}>
                 {(provided)=>(
                     <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                         <Card
@@ -60,6 +65,7 @@ class Cardlink extends React.Component{
                             <Card.Body class={styles.cardBody}>
                                 <div className={styles.cardCost}>{this.props.card.cost}</div>
                                 <div>{this.props.card.name}</div>
+                                {this.props.amountActions &&
                                 <div className={styles.cardCountBtns}>
                                     <div className={styles.cardCount}>{this.props.card.amount}</div>
                                     <Button
@@ -73,6 +79,7 @@ class Cardlink extends React.Component{
                                         onClick={() => this.props.amountActions.remove(this.props.index)}
                                     >-</Button>
                                 </div>
+                                }
                             </Card.Body>
                             <Card.Footer class={styles.cardFooter}>
                                 <a href={this.props.card.link}

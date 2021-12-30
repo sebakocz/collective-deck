@@ -17,6 +17,7 @@ class Decklist extends React.Component{
                                 card={item}
                                 index={index}
                                 key={index}
+                                dragSuffix={"view_"}
                                 amountActions={this.props.amountActions}
                             />
                         ))}
@@ -27,13 +28,5 @@ class Decklist extends React.Component{
         );
     }
 }
-
-// <Cardlink
-//     name={"funny card"}
-//     link={Math.random()}
-//     amount={3}
-//     index={this.state.children.length}
-//     key={this.state.children.length}
-// />
 
 export default Decklist

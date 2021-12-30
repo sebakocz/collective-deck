@@ -1,4 +1,4 @@
-async function getCards(input) {
+export async function getCards(input) {
     const PUBLIC_CARDS = await (await fetch('https://server.collective.gg/api/public-cards/')).json()
 
 
@@ -61,6 +61,8 @@ async function getCards(input) {
         if (isNaN(card_amount))
             card_amount = 1
 
+        console.log(card_data.card.Text.Name)
+
         cards.push({
             id: card_id,
             name: card_data.card.Text.Name,
@@ -72,10 +74,11 @@ async function getCards(input) {
         })
     }
 
+
     return cards
 }
 
-function findProperty(parent_node, symbol_name){
+export function findProperty(parent_node, symbol_name){
     // find correct Property index
     for(let i = 0; i < parent_node.length; i++){
         if(parent_node[i].Symbol.Name === symbol_name){
