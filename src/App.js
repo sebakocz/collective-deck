@@ -12,6 +12,8 @@ import {DragDropContext} from "react-beautiful-dnd";
 import {getCards} from "./utils/GetCards";
 import StreamPage from "./pages/Stream";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import {GoogleSpreadsheet} from "google-spreadsheet";
+import { v4 as uuid } from 'uuid';
 
 //https://www.youtube.com/watch?v=Dorf8i6lCuk&ab_channel=Academind
 
@@ -133,12 +135,58 @@ class App extends React.Component{
         navigator.clipboard.writeText(decklist)
         }
 
+    exportToLinkACtion = async () => {
+
+        // Config variables
+        const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
+        const SHEET_ID = process.env.REACT_APP_SHEET_ID;
+        const CLIENT_EMAIL = process.env.REACT_APP_GOOGLE_CLIENT_EMAIL;
+        const PRIVATE_KEY = process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY;
+
+        const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+
+        const appendSpreadsheet = async (row) => {
+            try {
+                await doc.useServiceAccountAuth({
+                    client_email: CLIENT_EMAIL,
+                    private_key: PRIVATE_KEY.replace(/\\n/g, '\n'),
+                });
+                // loads document properties and worksheets
+                await doc.loadInfo();
+
+                const sheet = doc.sheetsById[SHEET_ID];
+                const result = await sheet.addRow(row);
+            } catch (e) {
+                console.error('Error: ', e);
+            }
+        };
+
+        // // decklist format
+        const cards = this.state.children
+        let decklist = ""
+        cards.map((card) => (
+            decklist += card.amount + " " + card.link + "\n"
+        ))
+
+        // // generate unique id based on uuidv4
+        const deck_id = uuid().slice(0,8)
+
+        const newRow = { deck_id: deck_id, deck_list: decklist };
+
+        appendSpreadsheet(newRow);
+
+        const decklink = "https://collectivedeck.codes/?list="+deck_id
+
+        navigator.clipboard.writeText(decklink)
+    }
+
     optionActions = {
         clear: this.clearAction,
         sortByCost: this.sortByCostAction,
         sortByName: this.sortByNameAction,
         sortByAffinity: this.sortByAffinityAction,
-        exportToText: this.exportToTextAction
+        exportToText: this.exportToTextAction,
+        exportToLink: this.exportToLinkACtion
     }
 
     addAmountAction = (index) => {
@@ -190,6 +238,8 @@ class App extends React.Component{
                         return;
                     if (row.c[3].v === 'Undraftable')
                         return;
+                    // if (row.c[16].v !== 0)
+                    //     return;
 
                     // uid could be fetched directly if I add a field to the google doc
                     const card_id = /(?<=\/p\/cards\/)(.*?)(?=...png)/.exec(row.c[12].v)[0]
@@ -212,6 +262,7 @@ class App extends React.Component{
                         hp: row.c[6] ? row.c[6].v : "",
                         rarity: row.c[3] ? row.c[3].v : "",
                         type: row.c[1] ? row.c[1].v : "",
+                        state: row.c[16] ? row.c[16].v : "",
                     })
                 })
             }).then(() => {
@@ -275,15 +326,6 @@ class App extends React.Component{
 
     searchAction = (search_state) => {
 
-        /* TODO Search
-        * more input fields!
-        * - Format
-        * Name (with suggestions, similar to tribes)
-        * - Tribe
-        * ATK (no idea what kind of input)
-        * HP
-        * */
-
         let result = this.state.saved_database
 
         // based on simple search
@@ -302,16 +344,19 @@ class App extends React.Component{
                 // filterless
                 // console.log("App: Legacy")
                 break
+            // case "Standard":
+            //     // console.log("App: Standard")
+            //     result = result.filter(card =>
+            //         new Date(card.release_date) > new Date("2020-05-22T00:00:00.0000")
+            //     )
+            //     break
+            // case "New Standard":
             case "Standard":
-                // console.log("App: Standard")
-                result = result.filter(card =>
-                    new Date(card.release_date) > new Date("2020-05-22T00:00:00.0000")
-                )
-                break
-            case "New Standard":
                 // console.log("App: New Standard")
                 result = result.filter(card =>
-                    new Date(card.release_date) > new Date("2021-05-28T00:00:00.0000")
+                    // new Date(card.release_date) > new Date("2021-05-28T00:00:00.0000") <- old wrong entry
+                    //new Date(card.release_date) > new Date("2020-11-21T00:00:00.0000") <- correct time but intro cards messed up the logic
+                    card.state === 0
                 )
                 break
             default:
@@ -374,14 +419,14 @@ class App extends React.Component{
               <LoadingScreen ref={LoadingScreen => this.LoadingScreen = LoadingScreen}/>
               <DragDropContext onDragEnd={this.onDragEnd}>
                   <Routes>
-                      <Route path="/collective-deck/"
+                      <Route path="/"
                              element={<ViewPage cards={this.state.children}
                                                 amountActions={this.amountActions}
                                                 optionActions={this.optionActions}
                                                 addCardAction={this.addCardAction}
                              />}
                       />
-                      <Route path="/collective-deck/build"
+                      <Route path="/build"
                              element={<BuildPage cards={this.state.children}
                                                  database={this.state.database}
                                                  saved_database={this.state.saved_database}
@@ -391,9 +436,9 @@ class App extends React.Component{
                                                  searchAction={this.searchAction}
                              />}
                       />
-                      <Route path="/collective-deck/analyse" element={<AnalysePage/>}/>
-                      <Route path="/collective-deck/stream" element={<StreamPage/>}/>
-                      <Route path="/collective-deck/credits" element={<CreditsPage/>}/>
+                      <Route path="/analyse" element={<AnalysePage/>}/>
+                      <Route path="/stream" element={<StreamPage/>}/>
+                      <Route path="/credits" element={<CreditsPage/>}/>
                   </Routes>
               </DragDropContext>
           </div>

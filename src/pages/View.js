@@ -7,10 +7,58 @@ import DecklistInput from "../components/DecklistInput/DecklistInput";
 import DeckView from "../components/DeckView/DeckView";
 import Options from "../components/Options";
 import RandomLadderDeck from "../components/RandomLadderDeck";
+import {GoogleSpreadsheet} from "google-spreadsheet";
+import {v4 as uuid} from "uuid";
 
 class ViewPage extends React.Component{
 
+    componentDidMount() {
+        // reading url parameter to get a deck code
+        const params = new URLSearchParams(window.location.search);
+        // console.log(params.get('list'));
+
+        const list = params.get('list')
+        if(list){
+            // Config variables
+            const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
+            const SHEET_ID = process.env.REACT_APP_SHEET_ID;
+            const CLIENT_EMAIL = process.env.REACT_APP_GOOGLE_CLIENT_EMAIL;
+            const PRIVATE_KEY = process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY;
+
+            const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+
+            const readSpreadsheet = async (list) => {
+                try {
+                    await doc.useServiceAccountAuth({
+                        client_email: CLIENT_EMAIL,
+                        private_key: PRIVATE_KEY.replace(/\\n/g, '\n'),
+                    });
+                    // loads document properties and worksheets
+                    await doc.loadInfo();
+
+                    const sheet = doc.sheetsById[SHEET_ID];
+                    const rows = await sheet.getRows();
+
+                    for (let row of rows){
+                        if(row.deck_id === list){
+                            console.log(row.deck_list)
+                            this.props.addCardAction(row.deck_list)
+                            return
+                        }
+                    }
+                } catch (e) {
+                    console.error('Error: ', e);
+                }
+            };
+
+            readSpreadsheet(list)
+
+            // this.props.addCardAction(list)
+        }
+    }
+
     render() {
+
         return (
             <Container className="pt-5">
                 <Row>

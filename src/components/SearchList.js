@@ -27,14 +27,12 @@ class SearchList extends React.Component {
     }
 
     changePage = ({selected}) => {
-        console.log(selected)
         const pageVisited = selected * this.cardsPerPage
         this.setState({
             pageNumber: selected,
             pagesVisited: pageVisited
         })
     }
-
 
     render() {
         return (
@@ -46,8 +44,8 @@ class SearchList extends React.Component {
                             {this.props.cards.slice(this.state.pagesVisited, this.state.pagesVisited + this.cardsPerPage).map((item, index) => (
                                 <Cardlink
                                     card={item}
-                                    index={index}
-                                    key={index}
+                                    index={index+this.state.pagesVisited}
+                                    key={index+this.state.pagesVisited}
                                     dragSuffix={"build_"}
                                 />
                             ))}

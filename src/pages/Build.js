@@ -1,19 +1,18 @@
 import React from 'react';
 import {Button, Col, Row} from "react-bootstrap";
-import RandomLadderDeck from "../components/RandomLadderDeck";
 import Decklist from "../components/Decklist";
-import DecklistInput from "../components/DecklistInput/DecklistInput";
-import Options from "../components/Options";
-import DeckView from "../components/DeckView/DeckView";
 import Container from "react-bootstrap/Container";
-import SearchCardFrame from "../components/SearchCardFrame/SearchCardFrame";
 import SearchList from "../components/SearchList";
 import SearchListForm from "../components/SeachListForm/SearchListForm";
 
 class BuildPage extends React.Component{
+
+    triggerPaginationReset(){
+        this.searchlist.changePage({"selected":0})
+    }
+
     render() {
         return (
-            // <div className={"App"}>Under construction...</div>
             <Container className="pt-5">
                 <Row>
                     <Col md={5}>
@@ -21,9 +20,14 @@ class BuildPage extends React.Component{
                             <Button variant={"primary"} onClick={this.props.fillDatabaseAction}>Load All Cards</Button>
                         }
                         {this.props.saved_database.length > 0 &&
-                            <SearchListForm searchAction={this.props.searchAction} cards={this.props.database}/>
+                            <SearchListForm searchAction={this.props.searchAction}
+                                            cards={this.props.database}
+                                            paginationResetAction={this.triggerPaginationReset.bind(this)}
+                            />
                         }
-                        <SearchList cards={this.props.database}/>
+                        <SearchList cards={this.props.database}
+                                    ref={searchlist => this.searchlist = searchlist}
+                        />
                     </Col>
                     <Col md={5}>
                         <Decklist cards={this.props.cards}

@@ -14,7 +14,7 @@ class Options extends React.Component{
 
                     <Dropdown.Menu>
                         <Dropdown.Item href="" onClick={this.props.optionActions.exportToText}>Text</Dropdown.Item>
-                        <Dropdown.Item href="">~~SOON~~ Link ~~SOON~~</Dropdown.Item>
+                        <Dropdown.Item href="" onClick={this.props.optionActions.exportToLink}>Link</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
 

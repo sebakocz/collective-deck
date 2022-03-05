@@ -53,6 +53,7 @@ class SearchListForm extends React.Component{
 
     search(){
         this.props.searchAction(this.state)
+        this.props.paginationResetAction()
     }
 
     lockAdvancedSearch(){
@@ -67,10 +68,15 @@ class SearchListForm extends React.Component{
             simple_input: "",
             format: "Legacy",
             affinity: "",
+            atk: "",
+            hp: "",
             tribe: "",
             realm: "",
             artist: "",
-            creator: ""
+            creator: "",
+            rarity: "",
+            type: "",
+            cost: ""
         }, () => this.search())
     }
 
@@ -321,7 +327,7 @@ class SearchListForm extends React.Component{
                         <Dropdown.Menu>
                             <Dropdown.Item data-format={"Legacy"}>Legacy</Dropdown.Item>
                             <Dropdown.Item data-format={"Standard"}>Standard</Dropdown.Item>
-                            <Dropdown.Item data-format={"New Standard"}>New Standard</Dropdown.Item>
+                            {/*<Dropdown.Item data-format={"New Standard"}>New Standard</Dropdown.Item>*/}
                         </Dropdown.Menu>
                     </Dropdown>
 

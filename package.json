@@ -1,5 +1,5 @@
 {
-  "homepage": "http://sebakocz.github.io/collective-deck/",
+  "homepage": "https://collectivedeck.codes/",
   "name": "collective-deck",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.1.3",
     "gh-pages": "^3.2.3",
+    "google-spreadsheet": "^3.2.0",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
     "react-bootstrap": "^2.0.2",
@@ -18,6 +19,7 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-tooltip": "^4.2.21",
+    "uuidv4": "^6.2.12",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
