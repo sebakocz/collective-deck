@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.b39f53b9.chunk.css",
-    "main.js": "/static/js/main.71c2ee0e.chunk.js",
-    "main.js.map": "/static/js/main.71c2ee0e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.a2d2febb.js",
-    "runtime-main.js.map": "/static/js/runtime-main.a2d2febb.js.map",
-    "static/css/2.0a9ec390.chunk.css": "/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.51256b92.chunk.js": "/static/js/2.51256b92.chunk.js",
-    "static/js/2.51256b92.chunk.js.map": "/static/js/2.51256b92.chunk.js.map",
-    "static/js/3.ce4ca285.chunk.js": "/static/js/3.ce4ca285.chunk.js",
-    "static/js/3.ce4ca285.chunk.js.map": "/static/js/3.ce4ca285.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.0a9ec390.chunk.css.map": "/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.b39f53b9.chunk.css.map": "/static/css/main.b39f53b9.chunk.css.map",
-    "static/js/2.51256b92.chunk.js.LICENSE.txt": "/static/js/2.51256b92.chunk.js.LICENSE.txt",
-    "static/media/Cardlink.module.css": "/static/media/cost_ring.a024b6a8.png"
+    "main.css": "/collective-deck/static/css/main.e9cc0146.chunk.css",
+    "main.js": "/collective-deck/static/js/main.ff818bd1.chunk.js",
+    "main.js.map": "/collective-deck/static/js/main.ff818bd1.chunk.js.map",
+    "runtime-main.js": "/collective-deck/static/js/runtime-main.b6c34bf1.js",
+    "runtime-main.js.map": "/collective-deck/static/js/runtime-main.b6c34bf1.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/collective-deck/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.2c40276b.chunk.js": "/collective-deck/static/js/2.2c40276b.chunk.js",
+    "static/js/2.2c40276b.chunk.js.map": "/collective-deck/static/js/2.2c40276b.chunk.js.map",
+    "static/js/3.ce4ca285.chunk.js": "/collective-deck/static/js/3.ce4ca285.chunk.js",
+    "static/js/3.ce4ca285.chunk.js.map": "/collective-deck/static/js/3.ce4ca285.chunk.js.map",
+    "index.html": "/collective-deck/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/collective-deck/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.e9cc0146.chunk.css.map": "/collective-deck/static/css/main.e9cc0146.chunk.css.map",
+    "static/js/2.2c40276b.chunk.js.LICENSE.txt": "/collective-deck/static/js/2.2c40276b.chunk.js.LICENSE.txt",
+    "static/media/Cardlink.module.css": "/collective-deck/static/media/cost_ring.a024b6a8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.a2d2febb.js",
+    "static/js/runtime-main.b6c34bf1.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.51256b92.chunk.js",
-    "static/css/main.b39f53b9.chunk.css",
-    "static/js/main.71c2ee0e.chunk.js"
+    "static/js/2.2c40276b.chunk.js",
+    "static/css/main.e9cc0146.chunk.css",
+    "static/js/main.ff818bd1.chunk.js"
   ]
 }
