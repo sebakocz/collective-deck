@@ -1,0 +1,53 @@
+[33mcommit c56580e056f570df3e24f40438f7628cdb849658[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;33mtag: v1.0.0[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Sat Mar 5 12:30:12 2022 +0100
+
+    build section finalized; link export; url change
+
+[33mcommit 4452b42fddb6d4fc32062b3521b5a3b89a21cc4d[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Thu Dec 30 19:54:57 2021 +0100
+
+    build section early stage
+
+[33mcommit b725a7ad4f7ad62dcfe286b2b4719fa360ed995f[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Sun Nov 21 00:59:24 2021 +0100
+
+    design rework; merged images with cards links;
+
+[33mcommit 062a980c00a9119b3965337c112ee4cf30d94848[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Thu Nov 18 00:10:36 2021 +0100
+
+    mobile now usable
+
+[33mcommit 567c7a99dee7bfa368172cc15423c599ba171c09[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Tue Nov 16 13:30:07 2021 +0100
+
+    loading screen; typos; numberless link;
+
+[33mcommit 551cfea08f713ed53939c20a05538690aa986f3c[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Sat Nov 13 16:32:09 2021 +0100
+
+    meta fixes
+
+[33mcommit 2c39cc32f4312aa4cb9257bed464f097a01733b6[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Sat Nov 13 16:09:05 2021 +0100
+
+    url fixes
+
+[33mcommit 43da77c4e42f8ba648a2bc8f5ebd4c9df8a24263[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Sat Nov 13 16:00:45 2021 +0100
+
+    url fixes
+
+[33mcommit 2be79ae594e9f7da9dc578fc126c9b40086c223f[m
+Author: Sebastian Koczwara <sebakocz@gmail.com>
+Date:   Sat Nov 13 05:44:23 2021 +0100
+
+    initial commit

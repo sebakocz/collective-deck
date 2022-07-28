@@ -25,9 +25,17 @@ class App extends React.Component{
         this.state = {
             children: [],
             database: [],
-            saved_database:[]
+            saved_database:[],
+            deck_data:{
+                name: "",
+                hero: ""
+            }
         }
     }
+
+    // # Deck Name is the first line
+    // # Hero: Hero Name is the second line
+
 
     onDragEnd = result => {
 
@@ -77,19 +85,52 @@ class App extends React.Component{
     }
 
     addCardAction = (input) => {
+        const lines = input.split('\n')
+        let deck_name = ""
+        let deck_hero = ""
+        if(lines[0].charAt(0) === '#')
+            deck_name = lines[0].substring(2)
+        if(lines[1].includes("# Hero:"))
+            deck_hero = lines[0].substring(7)
+
         this.loadingAction(
             getCards(input)
                 .then(cards => {
                     this.setState({
+                        ...this.state,
                         children: [
                             ...this.state.children,
                             ...cards
-                        ]
+                        ],
+                        deck_data:{
+                            ...this.state.deck_data,
+                            name: deck_name,
+                            hero: deck_hero
+                        }
                     });
                 })
         )
     }
 
+    changeDeckNameAction = (input) => {
+        this.setState({
+            ...this.state,
+            deck_data: {
+                ...this.state.deck_data,
+                name: input
+            }
+        })
+    }
+
+    changeHeroAction = (input) => {
+        this.setState({
+            ...this.state,
+            deck_data: {
+                ...this.state.deck_data,
+                hero: input
+            }
+        })
+    }
     clearAction = () => {
         this.setState({
             children: []
@@ -129,6 +170,10 @@ class App extends React.Component{
     exportToTextAction = () => {
         const cards = this.state.children
         let decklist = ""
+
+        decklist += this.state.deck_data.name === "" ? "# Created via collectivedeck.codes\n" : "# " +this.state.deck_data.name + "\n"
+        decklist += this.state.deck_data.hero === "" ? "# Hero: None\n" : "# " + this.state.deck_data.hero + "\n"
+
         cards.map((card) => (
             decklist += card.amount + " " + card.link + "\n"
         ))
@@ -164,6 +209,10 @@ class App extends React.Component{
         // // decklist format
         const cards = this.state.children
         let decklist = ""
+
+        decklist += this.state.deck_data.name === "" ? "# Created via collectivedeck.codes\n" : "# " +this.state.deck_data.name + "\n"
+        decklist += this.state.deck_data.hero === "" ? "# Hero: None\n" : "# " + this.state.deck_data.hero + "\n"
+
         cards.map((card) => (
             decklist += card.amount + " " + card.link + "\n"
         ))
@@ -424,6 +473,9 @@ class App extends React.Component{
                                                 amountActions={this.amountActions}
                                                 optionActions={this.optionActions}
                                                 addCardAction={this.addCardAction}
+                                                changeDeckNameAction={this.changeDeckNameAction}
+                                                changeHeroAction={this.changeHeroAction}
+                                                deck_data={this.state.deck_data}
                              />}
                       />
                       <Route path="/build"

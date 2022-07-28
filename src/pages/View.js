@@ -71,7 +71,13 @@ class ViewPage extends React.Component{
                         <div>
                             {this.props.cards.reduce((a,b) => a + b.amount, 0)}
                         </div>}
-                        <DecklistInput addCardAction={this.props.addCardAction}/>
+                        <DecklistInput
+                            addCardAction={this.props.addCardAction}
+                            changeDeckNameAction={this.props.changeDeckNameAction}
+                            changeHeroAction={this.props.changeHeroAction}
+                            cardsAmount={this.props.cards.length}
+                            deck_data={this.props.deck_data}
+                        />
                         {this.props.cards.length > 0 && <Options optionActions={this.props.optionActions}/>}
                     </Col>
                     <Col md={5}>
