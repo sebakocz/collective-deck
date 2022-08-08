@@ -468,7 +468,7 @@ class App extends React.Component{
               <LoadingScreen ref={LoadingScreen => this.LoadingScreen = LoadingScreen}/>
               <DragDropContext onDragEnd={this.onDragEnd}>
                   <Routes>
-                      <Route path="/"
+                      <Route path="/collective-deck/"
                              element={<ViewPage cards={this.state.children}
                                                 amountActions={this.amountActions}
                                                 optionActions={this.optionActions}
@@ -478,7 +478,7 @@ class App extends React.Component{
                                                 deck_data={this.state.deck_data}
                              />}
                       />
-                      <Route path="/build"
+                      <Route path="/collective-deck/build"
                              element={<BuildPage cards={this.state.children}
                                                  database={this.state.database}
                                                  saved_database={this.state.saved_database}
@@ -488,9 +488,9 @@ class App extends React.Component{
                                                  searchAction={this.searchAction}
                              />}
                       />
-                      <Route path="/analyse" element={<AnalysePage/>}/>
-                      <Route path="/stream" element={<StreamPage/>}/>
-                      <Route path="/credits" element={<CreditsPage/>}/>
+                      <Route path="/collective-deck/analyse" element={<AnalysePage/>}/>
+                      <Route path="/collective-deck/stream" element={<StreamPage/>}/>
+                      <Route path="/collective-deck/credits" element={<CreditsPage/>}/>
                   </Routes>
               </DragDropContext>
           </div>
