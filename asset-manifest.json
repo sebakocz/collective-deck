@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/collective-deck/static/css/main.e9cc0146.chunk.css",
-    "main.js": "/collective-deck/static/js/main.78745837.chunk.js",
-    "main.js.map": "/collective-deck/static/js/main.78745837.chunk.js.map",
+    "main.js": "/collective-deck/static/js/main.bf1e04dc.chunk.js",
+    "main.js.map": "/collective-deck/static/js/main.bf1e04dc.chunk.js.map",
     "runtime-main.js": "/collective-deck/static/js/runtime-main.b6c34bf1.js",
     "runtime-main.js.map": "/collective-deck/static/js/runtime-main.b6c34bf1.js.map",
     "static/css/2.0a9ec390.chunk.css": "/collective-deck/static/css/2.0a9ec390.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.0a9ec390.chunk.css",
     "static/js/2.2c40276b.chunk.js",
     "static/css/main.e9cc0146.chunk.css",
-    "static/js/main.78745837.chunk.js"
+    "static/js/main.bf1e04dc.chunk.js"
   ]
 }
